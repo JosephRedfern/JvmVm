@@ -7,35 +7,35 @@ import me.redfern.jvmvm.vm.formats.Format2R;
 
 /***
  * Opcode 0x01, FORMAT_2R
- * 0x02 rN rM
- * Add rN to rM
+ * 1 N rM
+ * Give rM value N. 
  * 
  * @author Joseph Redfern
  */
-public class AddReg extends Format2R{
-	private Register sourceReg;
+public class Const extends Format2R{
+	private int value;
 	private Register destReg;
 	
 	public AbstractInstruction getInstance(int ip, int[] intcode) throws InvalidRegisterException{
-		return new AddReg(ip, intcode);
+		return new Const(ip, intcode);
 	}
 	
-	public AddReg(){
+	public Const(){
 		
 	}
 	
-	public AddReg(int ip, int[] intcode) throws InvalidRegisterException{
+	public Const(int ip, int[] intcode) throws InvalidRegisterException{
 		populateRegisters(ip, intcode);
 	}
 	
 	private void populateRegisters(int ip, int[] intcode) throws InvalidRegisterException{
-		this.sourceReg = VmContext.getRegister(intcode[ip+1]);
+		this.value = intcode[ip+1];
 		this.destReg = VmContext.getRegister(intcode[ip+2]);
 	}
 
 	@Override
 	public void execute() throws InvalidRegisterException {
-		int result = this.destReg.getValue() + this.sourceReg.getValue();
+		int result = this.destReg.getValue() + this.value;
 		this.destReg.setValue(result);
 	}
 }

@@ -12,7 +12,7 @@ public class JvmVm {
 	int[] intcode;
 	
 	public static void main(String args[]) throws InvalidBytecodeException, InvalidRegisterException{
-		JvmVm vm = new JvmVm(new int[]{1333333337, 1, 1, 0, 0}); //temp
+		JvmVm vm = new JvmVm(new int[]{1333333337, 1, 1, 10, 0, 2, 0, 0, 3, 0}); //temp
 		vm.run();
 	}
 	
@@ -33,12 +33,10 @@ public class JvmVm {
 	 */
 	public void run() throws InvalidRegisterException{
 		HashMap<Integer, AbstractInstruction> mapping = generateInstructionMapping();
-		System.err.println(mapping);
 		
 		int ip = 2;
 		while(ip<this.intcode.length){
 			AbstractInstruction i = mapping.get(intcode[ip]).getInstance(ip, intcode);
-			System.out.println(i);
 			i.execute();
 			ip += i.getSize();
 		}

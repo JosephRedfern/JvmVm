@@ -1,7 +1,10 @@
 package me.redfern.jvmvm.vm.instructions;
 
 public enum Instruction {
-	AddReg(1, new AddReg());
+	
+	Const(1, new Const()),
+	AddReg(2, new AddReg()),
+	Print(3, new Print());
 	
 	public Integer opcode;
 	public AbstractInstruction instruction;
