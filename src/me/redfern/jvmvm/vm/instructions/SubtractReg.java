@@ -6,25 +6,25 @@ import me.redfern.jvmvm.vm.VmContext;
 import me.redfern.jvmvm.vm.instructions.formats.Format2R;
 
 /***
- * Opcode 0x01, FORMAT_2R
- * 0x02 rN rM
+ * Opcode 2, FORMAT_2R
+ * 2 rN rM
  * Add rN to rM
  * 
  * @author Joseph Redfern
  */
-public class SubReg extends Format2R implements IInstruction{
+public class SubtractReg extends Format2R implements IInstruction{
 	private Register sourceReg;
 	private Register destReg;
 	
 	public IInstruction getInstance(int ip, int[] intcode) throws InvalidRegisterException{
-		return new SubReg(ip, intcode);
+		return new SubtractReg(ip, intcode);
 	}
 	
-	public SubReg(){
+	public SubtractReg(){
 		
 	}
 	
-	public SubReg(int ip, int[] intcode) throws InvalidRegisterException{
+	public SubtractReg(int ip, int[] intcode) throws InvalidRegisterException{
 		populateRegisters(ip, intcode);
 	}
 	

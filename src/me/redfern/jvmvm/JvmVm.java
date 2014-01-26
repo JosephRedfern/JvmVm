@@ -20,7 +20,9 @@ public class JvmVm {
 				1, 7, 2, //move 7 to r2
 				2, 0, 1, // add r0 to r1
 				3, 2, 1, //subtract r2 from r1
-				4, 1}); //print r1
+				4, 2, 1, //Multiply r1 by r2
+				6, 1}); //print r1
+		
 		vm.run();
 	}
 	
