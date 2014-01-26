@@ -12,7 +12,15 @@ public class JvmVm {
 	int[] intcode;
 	
 	public static void main(String args[]) throws InvalidBytecodeException, InvalidRegisterException{
-		JvmVm vm = new JvmVm(new int[]{1333333337, 1, 1, 10, 0, 2, 0, 0, 3, 0}); //temp
+		JvmVm vm = new JvmVm(new int[]{
+				1333333337, //magic
+				3, //3 instructions
+				1, 10, 0, //move 10 to r0
+				1, 20, 1, //move 20 to r1
+				1, 7, 2, //move 7 to r2
+				2, 0, 1, // add r0 to r1
+				3, 2, 1, //subtract r2 from r1
+				4, 1}); //print r1
 		vm.run();
 	}
 	
