@@ -3,7 +3,7 @@ package me.redfern.jvmvm.vm.instructions;
 import me.redfern.jvmvm.exceptions.InvalidRegisterException;
 import me.redfern.jvmvm.vm.Register;
 import me.redfern.jvmvm.vm.VmContext;
-import me.redfern.jvmvm.vm.formats.Format2R;
+import me.redfern.jvmvm.vm.instructions.formats.Format2R;
 
 /***
  * Opcode 0x01, FORMAT_2R
