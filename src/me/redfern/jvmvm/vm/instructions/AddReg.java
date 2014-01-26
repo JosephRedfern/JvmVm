@@ -12,11 +12,11 @@ import me.redfern.jvmvm.vm.instructions.formats.Format2R;
  * 
  * @author Joseph Redfern
  */
-public class AddReg extends Format2R{
+public class AddReg extends Format2R implements IInstruction{
 	private Register sourceReg;
 	private Register destReg;
 	
-	public AbstractInstruction getInstance(int ip, int[] intcode) throws InvalidRegisterException{
+	public IInstruction getInstance(int ip, int[] intcode) throws InvalidRegisterException{
 		return new AddReg(ip, intcode);
 	}
 	

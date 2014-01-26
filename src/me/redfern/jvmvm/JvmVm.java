@@ -5,7 +5,7 @@ import java.util.HashMap;
 import me.redfern.jvmvm.exceptions.InvalidBytecodeException;
 import me.redfern.jvmvm.exceptions.InvalidRegisterException;
 import me.redfern.jvmvm.vm.VmContext;
-import me.redfern.jvmvm.vm.instructions.AbstractInstruction;
+import me.redfern.jvmvm.vm.instructions.IInstruction;
 import me.redfern.jvmvm.vm.instructions.Instruction;
 
 public class JvmVm {
@@ -32,18 +32,18 @@ public class JvmVm {
 	 * @throws InvalidRegisterException 
 	 */
 	public void run() throws InvalidRegisterException{
-		HashMap<Integer, AbstractInstruction> mapping = generateInstructionMapping();
+		HashMap<Integer, IInstruction> mapping = generateInstructionMapping();
 		
 		int ip = 2;
 		while(ip<this.intcode.length){
-			AbstractInstruction i = mapping.get(intcode[ip]).getInstance(ip, intcode);
+			IInstruction i = mapping.get(intcode[ip]).getInstance(ip, intcode);
 			i.execute();
 			ip += i.getSize();
 		}
 	}
 	
-	public static HashMap<Integer, AbstractInstruction> generateInstructionMapping(){
-		HashMap<Integer, AbstractInstruction> mapping = new HashMap<Integer, AbstractInstruction>();
+	public static HashMap<Integer, IInstruction> generateInstructionMapping(){
+		HashMap<Integer, IInstruction> mapping = new HashMap<Integer, IInstruction>();
 		
 		for(Instruction i : Instruction.values()){
 			mapping.put(i.opcode, i.instruction);

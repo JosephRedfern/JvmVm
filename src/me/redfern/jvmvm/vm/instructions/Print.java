@@ -3,6 +3,7 @@ package me.redfern.jvmvm.vm.instructions;
 import me.redfern.jvmvm.exceptions.InvalidRegisterException;
 import me.redfern.jvmvm.vm.Register;
 import me.redfern.jvmvm.vm.VmContext;
+import me.redfern.jvmvm.vm.instructions.formats.Format1R;
 import me.redfern.jvmvm.vm.instructions.formats.Format2R;
 
 /***
@@ -12,10 +13,10 @@ import me.redfern.jvmvm.vm.instructions.formats.Format2R;
  * 
  * @author Joseph Redfern
  */
-public class Print extends Format2R{
+public class Print extends Format1R implements IInstruction{
 	private Register sourceReg;
 	
-	public AbstractInstruction getInstance(int ip, int[] intcode) throws InvalidRegisterException{
+	public IInstruction getInstance(int ip, int[] intcode) throws InvalidRegisterException{
 		return new Print(ip, intcode);
 	}
 	

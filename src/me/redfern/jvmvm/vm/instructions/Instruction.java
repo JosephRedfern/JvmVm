@@ -7,9 +7,9 @@ public enum Instruction {
 	Print(3, new Print());
 	
 	public Integer opcode;
-	public AbstractInstruction instruction;
+	public IInstruction instruction;
 	
-	Instruction(int opcode, AbstractInstruction instruction){
+	Instruction(int opcode, IInstruction instruction){
 		this.instruction = instruction;
 		this.opcode = opcode;
 	}
