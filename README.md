@@ -1,7 +1,7 @@
 JvmVm
 =====
 
-VM in a VM, yo! Just a bit of fun. 
+VM in a VM, yo! It's got some basic functionality, but it's real uses are limited... a toy project. 
 
 ##IntCode Format
 
@@ -14,12 +14,13 @@ bytecode, int[].
 
 ###Opcodes
 There are currently 6 opcodes:
-Const: 1 I R
-AddReg: 2 R R
-SubtractReg: 3 R R
-MultiplyReg: 4 R R
-DivideReg: 5 R R
-Print: 6 R
+
+* Const: 1 I R
+* AddReg: 2 R R
+* SubtractReg: 3 R R
+* MultiplyReg: 4 R R
+* DivideReg: 5 R R
+* Print: 6 R
 
 where I denotes an integer, and R denotes a register reference. 
 
@@ -36,3 +37,5 @@ A program which multiplied 10 by 5 and printed the result would look like this:
 >4 0 1 // Multiply r1 by r0
 
 >6 1 //Print the value of register 1
+
+or 1333333337110015140161
